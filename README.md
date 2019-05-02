@@ -6,7 +6,7 @@ Service for user authentication and registration
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-Make sure it edit the `.env` file in the root directory for the database credentials
+Make sure to edit the `.env` file in the root directory for the database credentials
 
 ### Prerequisites
 
