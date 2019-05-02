@@ -14,13 +14,21 @@ class UserController
 {
     public function getUserData($id)
     {
+        $response = [];
+        $response["status_code"] = 200;
+
         if($id){
             $user = User::find($id);
-            $data = ["success" => true, "data" => $user->toArray()];
-            return response($data, 200);
+            if($user != null) {
+                $response["data"] = $user->toArray();
+            } else {
+                $response["data"] = ["message" => "User ID not found"];
+            }
         } else {
-            $data = ["success" => false, "data" => ["message" => "User ID not found"]];
-            return response($data, 422);
+            $response["status_code"] = 422;
+            $response["data"] = ["data" => ["message" => "Something went wrong"]];
         }
+
+        return response($response, $response["status_code"]);
     }
 }
